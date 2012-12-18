@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>URL编码转换工具</title>
+</head>
+<body>
+<textarea id="input" rows="30" cols="120">
+</textarea>
+<input type="submit" id="encode" value="转换" />
+<textarea id="output" rows="30" cols="120">
+</textarea>
+<script>
+var inputEl = document.getElementById('input'),
+	outputEl = document.getElementById('output'),
+	encodeEl = document.getElementById('encode'),
+	input;
+
+encodeEl.onclick = function() {
+	input = inputEl.value;
+	output.value = input.replace(/&q=([^"]+)/g, function(str, p1) {
+		return '&q=' + encodeURIComponent(p1);
+	});
+};
+</script>
+</body>
+</html>
